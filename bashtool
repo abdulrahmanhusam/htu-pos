@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+// check if there is "make:controller" command
+if (in_array('make:controller', $argv)) {
+        // 1 )get the controller name
+        $controller = $argv[2];
+
+        // 2) prepare the data inside the controller file
+        $file_data = <<<EOD
+        <?php
+
+        namespace Core\Controller;
+
+        use Core\Base\Controller;
+
+
+        class $controller extends Controller
+        {
+                public function render()
+                {
+                        if (!empty(\$this->view))
+                                \$this->view();
+                }
+        }
+        EOD;
+
+        // 3) create the controller
+        file_put_contents("./Core/Controller/$controller.php", $file_data);
+}

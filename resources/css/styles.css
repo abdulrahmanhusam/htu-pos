@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Satisfy&display=swap');
+body {
+  height: 100vh;
+  background-color: #dddddd;
+  font-family: 'Poppins', sans-serif;
+
+}
+/* Custom File Upload BTN */
+::-webkit-file-upload-button{
+  height: 8vh;
+  background-color: rgba(0, 0, 255, 0.356);
+  margin-top: 6px;
+  border-radius: 10px;
+  border-color: #ffffff;
+  border-width: 5px;
+}
+
+/* Starting here design css for login page */
+.brand-font{
+  font-family: 'Permanent Marker', cursive;
+}
+.name-font{
+  font-family: 'Dancing Script', cursive;
+
+}
+.icon-font-size{
+  font-size: 10rem;
+}
+.img-mh{
+  max-height: 250px;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+section .imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+section .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section .contentBx {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+section .contentBx .formbx {
+  width: 50%;
+}
+section .contentBx .formbx img {
+  width: 100%;
+  margin-bottom: 40px;
+}
+section .contentBx .formbx .inputbx {
+  margin-bottom: 20px;
+}
+section .contentBx .formbx .inputbx span {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #607d8b;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.inputbx input {
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #607d8b;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #293338;
+  background: transparent;
+  border-radius: 30px;
+}
+
+.inputbx button {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 10px;
+  outline: none;
+  font-weight: 500;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  background-color: rgb(43, 220, 226);
+  color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 0 5px cyan,
+  0 0 25px cyan;
+}
+
+.inputbx button:hover {
+  background-color: rgb(44, 182, 187);
+  
+}
+.remember {
+  margin-bottom: 10px;
+  color: #607d8b;
+  font-weight: 400;
+  font-size: 14px;
+}
+.error-msg {
+  background-color: #f8d7da;
+  color: rgb(204, 55, 55);
+  font-weight: bolder;
+  text-align: center;
+  border-radius: 10px 15px 10px 15px;
+  padding: 10px;
+}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  section .imgBx {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  section .contentBx {
+    background-color: #ffffff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  section .contentBx .formbx {
+    width: 100%;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.904);
+    margin: 50px;
+  }
+  .md-ic{
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  section .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  section .contentBx {
+    background-color: #ffffff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  section .contentBx .formbx {
+    width: 50%;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.904);
+    margin: 50px;
+  }
+  .md-ic{
+    font-size: 1.7rem;
+  }
+}
