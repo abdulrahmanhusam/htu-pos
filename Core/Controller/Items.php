@@ -107,4 +107,9 @@ class Items extends Controller
         $item->delete($_GET['id']);
         Helper::redirect('/items');
     }
+    public function sales()
+    {
+        $this->permissions(['sales:all']);
+        $this->view = "selling-dashboard";
+    }
 }

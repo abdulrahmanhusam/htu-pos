@@ -5,20 +5,20 @@
         <form id="userInputContainer" class="m-auto d-sm-block d-lg-flex justify-content-between ">
 
             <input type="hidden" value="<?= $_SESSION['user']['user_id'] ?>">
-            <div class="input-group flex-nowrap pe-3 mb-sm-2 mb-md-3 mb-lg-0">
+            <div class="input-group flex-nowrap pe-3 mb-2 mb-md-3 mb-lg-0">
                 <span class="input-group-text" id="addon-wrapping">Items</span>
                 <select name="items-select" id="items-select" class="form-select" aria-label="Default select example">
                     <option value="">Choose an Item</option>
                 </select>
             </div>
 
-            <div class="input-group flex-nowrap pe-3 mb-sm-2 mb-md-3 mb-lg-0">
+            <div class="input-group flex-nowrap pe-3 mb-2 mb-md-3 mb-lg-0">
                 <span class="input-group-text" id="addon-wrapping">Quantity</span>
                 <input id="quantity" type="number" class="form-control" aria-describedby="addon-wrapping" min="1" required>
             </div>
 
 
-            <div class="input-group flex-nowrap pe-3 mb-sm-2 mb-md-3 mb-lg-0">
+            <div class="input-group flex-nowrap pe-3 mb-2 mb-md-3 mb-lg-0">
                 <span class="input-group-text" id="addon-wrapping">Price (JOD)</span>
                 <input id="price" type="number" step="any" class="form-control" aria-describedby="addon-wrapping" readonly>
             </div>
@@ -68,6 +68,7 @@
         let maxAllowedQuantity = null;
         //for vaildate the max (UPDATE) Qantity front and back
         let maxAllowedUpdateQuantity = null;
+        let host = window.location.origin; //to get the http protocol and domain name 
 
         function loadjspage() {
 
@@ -76,16 +77,11 @@
             $('#confetti').hide("fast", "linear"); //hide confetti
 
             let itemQuantity = null;
-
-
             let currentUserId = <?= $_SESSION['user']['user_id'] ?>;
-
-
-
             //get items from items table and append it
             $.ajax({
                 type: "GET",
-                url: "http://htu-pos.local/api/sales",
+                url: host + "/api/sales",
                 success: function(response) {
                     response.body.forEach(element => {
                         if (selectedItemNameToupdate == element.name) { // this step to update out of stock transaction item
@@ -118,7 +114,7 @@
                 //Added with the EDIT
                 $.ajax({
                     type: "GET",
-                    url: "http://htu-pos.local/api/sales",
+                    url: host + "/api/sales",
                     success: function(response) {
                         response.body.forEach(element => {
                             if (element.name == value) {
@@ -181,7 +177,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "http://htu-pos.local/api/sales/create",
+                    url: host + "/api/sales/create",
                     data: JSON.stringify({
                         item_id: itemID,
                         quantity: quantity,
@@ -199,7 +195,7 @@
                         }, 2000);
                         //success MSG
                         $('#msg').append(`
-                        <p class="alert alert-success w-50"  role="alert">
+                        <p class="alert alert-success w-50 m-auto"  role="alert">
                         Item bought successfully
                         </p>
                         `);
@@ -235,8 +231,8 @@
 
             //to get the transactions of this logged in user 
             $.ajax({
-                type: "POST",
-                url: "http://htu-pos.local/api/sales/list",
+                type: "GET",
+                url: host + "/api/sales/list",
                 data: JSON.stringify({
                     user_id: currentUserId // this is an additional field not in the transactions table 
                 }),
@@ -271,8 +267,8 @@
 
         function editTransacion(id) {
             $.ajax({
-                type: "POST",
-                url: "http://htu-pos.local/api/sales/list/single",
+                type: "GET",
+                url: host + "/api/sales/list/single",
                 data: JSON.stringify({
                     transaction_id: id
 
@@ -289,7 +285,7 @@
                     checkPrevious_item_name = response.body.previous_item_name;
                     if (checkPrevious_item_name != selectedItemNameToupdate) {
                         $('#msg').append(`
-                        <p class="alert alert-primary w-50"  role="alert">
+                        <p class="alert alert-primary w-50 m-auto"  role="alert">
                         The item name updated from stock management!
                         </p>
                         `);
@@ -383,7 +379,7 @@
 
                 $.ajax({
                     type: "PUT",
-                    url: "http://htu-pos.local/api/sales/update",
+                    url: host + "/api/sales/update",
                     data: JSON.stringify({ // we can put these data in assoc array rather than this steps and DTcasting in api controller 
                         item_id: itemID, //public in on change quantity method
                         item_name: itemsSelector,
@@ -403,7 +399,7 @@
                         }, 2000);
                         //success MSG
                         $('#msg').append(`
-                        <p class="alert alert-success w-50"  role="alert">
+                        <p class="alert alert-success w-50 m-auto"  role="alert">
                         Item Updated successfully
                         </p>
                         `);
@@ -452,7 +448,7 @@
 
             $.ajax({
                 type: "DELETE",
-                url: "http://htu-pos.local/api/sales/delete",
+                url: host + "/api/sales/delete",
                 data: JSON.stringify({
                     id: id //this is the current transaction id to delete
 

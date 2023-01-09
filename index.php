@@ -47,7 +47,8 @@ Router::get('/items/edit', "items.edit"); // Display the edit form (HTML)
 Router::post('/items/update', "items.update"); // Updates the items (PHP)
 // athenticated + permissions [item:read, item:detele]
 Router::get('/items/delete', "items.delete"); // Delete the item (PHP)
-
+// Interface that intracts with ajax (Creating a sparated Controller cause a problem after host it HTTP_CODE 500)
+Router::get('/sales', "items.sales");
 //                                          (Users table routes)
 // athenticated + permissions [user:read]
 Router::get('/users', "users.index"); // list of users (HTML)
@@ -78,18 +79,15 @@ Router::post('/transactions/update', "transactions.update"); // Updates the tran
 Router::get('/transactions/delete', "transactions.delete"); // Delete the tag (PHP)
 
 // Api requests
-Router::get('/api/sales', 'endpoints.items'); //to get items from items table 
+Router::get('/api/sales', "endpoints.items"); //to get items from items table 
 
-Router::post('/api/sales/create', 'endpoints.transaction_create'); // for create transcation using ajax 
-Router::post('/api/sales/list', 'endpoints.transaction_list'); // list current user transcations using ajax
-Router::post('/api/sales/list/single', 'endpoints.transaction_list_by_id'); // list selected user transcation details using ajax 
-Router::put('/api/sales/update', 'endpoints.transaction_update'); // update user transcation using ajax 
-Router::delete('/api/sales/delete', 'endpoints.transaction_delete'); // delete user transcation using ajax
-
-// interface that intracts with ajax
-Router::get('/sales', 'sales.index');
+Router::post('/api/sales/create', "endpoints.transaction_create"); // for create transcation using ajax 
+Router::get('/api/sales/list', "endpoints.transaction_list"); // list current user transcations using ajax
+Router::get('/api/sales/list/single', "endpoints.transaction_list_by_id"); // list selected user transcation details using ajax
+Router::put('/api/sales/update', "endpoints.transaction_update"); // update user transcation using ajax 
+Router::delete('/api/sales/delete', "endpoints.transaction_delete"); // delete user transcation using ajax
 
 //this route to get items top prices in the admin dashboard
-Router::get('/api/sales/topprices', 'endpoints.items_top_prices');
+Router::get('/api/sales/topprices', "endpoints.items_top_prices");
 
 Router::redirect();

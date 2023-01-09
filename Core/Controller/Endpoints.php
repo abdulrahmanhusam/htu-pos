@@ -6,7 +6,6 @@ use Core\Base\Controller;
 use Core\Helpers\Helper;
 use Core\Helpers\Tests;
 use Core\Model\Item;
-use Core\Model\Post;
 use Core\Model\Transaction;
 use Core\Model\users_transaction;
 use Exception;
@@ -103,7 +102,7 @@ class Endpoints extends Controller
             $this->response_schema['message_code'] = "transaction_created_successfuly";
         } catch (\Exception $error) {
             $this->response_schema['message_code'] = $error->getMessage();
-            $this->http_code = 421;
+            $this->http_code = 422;
         }
     }
     public function transaction_list() //by user id
@@ -198,7 +197,7 @@ class Endpoints extends Controller
         } catch (\Exception $error) {
             $this->response_schema['success'] = false;
             $this->response_schema['message_code'] = $error->getMessage();
-            $this->http_code = 404;
+            $this->http_code = 422;
         }
     }
     /**
@@ -238,7 +237,7 @@ class Endpoints extends Controller
         } catch (\Exception $error) {
             $this->response_schema['success'] = false;
             $this->response_schema['message_code'] = $error->getMessage();
-            $this->http_code = 404;
+            $this->http_code = 422;
         }
     }
 
