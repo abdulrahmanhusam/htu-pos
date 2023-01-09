@@ -2,7 +2,7 @@
 
 This API was made to control the CRUD operations of the sales page in this point-of-sale project.
 
-**** Response Schema: JSON OBJECT {"success": Boolean, "message_code": String, "body": Array} 
+**Response Schema: JSON OBJECT {"success": Boolean, "message_code": String, "body": Array} **
 
 **** GET /sales  
 
