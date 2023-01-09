@@ -231,7 +231,7 @@
 
             //to get the transactions of this logged in user 
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: host + "/api/sales/list",
                 data: JSON.stringify({
                     user_id: currentUserId // this is an additional field not in the transactions table 
@@ -267,7 +267,7 @@
 
         function editTransacion(id) {
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: host + "/api/sales/list/single",
                 data: JSON.stringify({
                     transaction_id: id
