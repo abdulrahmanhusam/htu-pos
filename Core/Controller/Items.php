@@ -22,6 +22,11 @@ class Items extends Controller
         $this->admin_view(true);
     }
 
+    /**
+     * Get all items from db
+     *
+     * @return void
+     */
     public function index()
     {
         $this->permissions(['item:read']);
@@ -30,6 +35,11 @@ class Items extends Controller
         $this->data['items'] = $items->get_all();
         $this->data['items_count'] = count($items->get_all());
     }
+    /**
+     * get selected item from db
+     *
+     * @return void
+     */
     public function single()
     {
         self::check_if_exists(isset($_GET['id']), "Please make sure the id is exists");
@@ -107,6 +117,11 @@ class Items extends Controller
         $item->delete($_GET['id']);
         Helper::redirect('/items');
     }
+    /**
+     * Rendering the Selling dashboard view (page) 
+     *
+     * @return void
+     */
     public function sales()
     {
         $this->permissions(['sales:all']);

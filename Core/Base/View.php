@@ -2,14 +2,12 @@
 
 namespace Core\Base;
 
-/**
- * Include the php html template
- */
+
 class View
 {
     /**
      * Dynamic including views 
-     *
+     * @return void
      */
     public function __construct(string $view, array $data = array())
     {

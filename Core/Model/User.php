@@ -27,7 +27,12 @@ class User extends Model
         "transaction:read", "transaction:update"
     );
 
-
+    /**
+     * Check if user exists, to process in authentication
+     *
+     * @param string $username
+     * @return object
+     */
     public function check_username(string $username)
     {
         $stmt = $this->connection->prepare("SELECT * FROM $this->table WHERE username=?"); // prepare the sql statement

@@ -10,7 +10,7 @@ abstract class Controller
     /**
      * Rendering pages 
      *
-     * 
+     * @return void
      */
     abstract public function render();
 
@@ -20,7 +20,7 @@ abstract class Controller
     /**
      * Get the data and view then Send them to View.php
      *
-     * 
+     *  @return void
      */
     protected function view()
     {
@@ -29,7 +29,7 @@ abstract class Controller
     /**
      * To prevent URL access for un logged in Users
      *
-     * 
+     *  @return void
      */
     protected function auth()
     {
@@ -37,6 +37,11 @@ abstract class Controller
             Helper::redirect('/');
         }
     }
+    /**
+     * Get current logged in User id
+     *
+     *
+     */
     public function current_user_id()
     {
 
@@ -47,7 +52,7 @@ abstract class Controller
      * Check if the user has the assigned permissions.
      *
      * @param array $permissions_set
-     * 
+     *  @return void
      */
     protected function permissions(array $permissions_set)
     {
@@ -70,7 +75,7 @@ abstract class Controller
      * Change the header view. check View.php line 18
      *
      * @param boolean $switch
-     * 
+     *  @return void
      */
     protected function admin_view(bool $switch): void
     {

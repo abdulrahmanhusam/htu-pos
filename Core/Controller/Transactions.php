@@ -40,7 +40,11 @@ class Transactions extends Controller
         $this->data['transactions'] = $transaction->get_all();
         $this->data['transactions_count'] = count($transaction->get_all());
     }
-
+    /**
+     * get Seleted transaction
+     *
+     * @return void
+     */
     public function single()
     {
         self::check_if_exists(isset($_GET['id']), "Please make sure the id is exists");
@@ -70,7 +74,7 @@ class Transactions extends Controller
     }
 
     /**
-     * Updates the transactions
+     * Update the transaction
      *
      * @return void
      */

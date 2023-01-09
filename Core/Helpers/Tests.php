@@ -6,6 +6,13 @@ use Exception;
 
 trait Tests
 {
+    /**
+     * check if not set the recevied expression
+     *
+     * @param [type] $expr
+     * @param [type] $msg
+     * @return void
+     */
     protected static function check_if_exists($expr, $msg)
     {
         try {
@@ -18,8 +25,12 @@ trait Tests
         }
     }
     /**
-     * static so any class can use it without need to create obj
      * check the request method POST elements if any field empty (BACK-END VALIDATION)
+     * static so any class can use it without need to create obj
+     *
+     * @param array $data
+     * @param string $redirect_url
+     * @return void
      */
     protected static function check_if_field_empty(array $data, string $redirect_url)
     {
@@ -43,7 +54,13 @@ trait Tests
             exit;
         }
     }
-    protected static function escape_xss_attacks(array $data)
+    /**
+     * Prevent cross site scripting attacks
+     *
+     * @param array $data
+     * @return array
+     */
+    protected static function escape_xss_attacks(array $data):array
     {
         $vulnerable_to_attck = array("display_name", "email", "username", "name"); //from users and items tbl
         foreach ($data as $key => $value) {

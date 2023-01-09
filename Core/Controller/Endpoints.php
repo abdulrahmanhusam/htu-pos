@@ -35,6 +35,11 @@ class Endpoints extends Controller
         echo json_encode($this->response_schema); // convert the data to json format
     }
 
+    /**
+     * Fetches all items (Stocks) from the database
+     *
+     * @return void
+     */
     public function items()
     {
         try {
@@ -52,6 +57,11 @@ class Endpoints extends Controller
         }
     }
 
+    /**
+     * Creates a new user transaction
+     *
+     * @return void
+     */
     public function transaction_create() //will insert to relation table also
     {
         self::check_if_field_empty($this->request_body, "/sales"); // for backend validation !empty
@@ -105,6 +115,11 @@ class Endpoints extends Controller
             $this->http_code = 422;
         }
     }
+    /**
+     * Fetches today user transactions by user_id
+     *
+     * @return void
+     */
     public function transaction_list() //by user id
     {
         //select tran_id from users_tran where user_id =id
@@ -158,7 +173,11 @@ class Endpoints extends Controller
             $this->http_code = 404;
         }
     }
-
+    /**
+     * Update selected transaction info on the database
+     *
+     * @return void
+     */
     public function transaction_update()
     {
         // tran id -> get the data for this tran from db ->send it with response
@@ -243,6 +262,7 @@ class Endpoints extends Controller
 
     /**
      * get top five expensive items (FOR USING in Admin dashboard chart)
+     *  @return void
      */
     public function items_top_prices()
     {

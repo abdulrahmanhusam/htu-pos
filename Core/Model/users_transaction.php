@@ -6,6 +6,12 @@ use Core\Base\Model;
 
 class users_transaction extends Model
 {
+    /**
+     * delete transaction from relation table 
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function delete_by_transaction_id($id)
     {
         $stmt = $this->connection->prepare("DELETE FROM $this->table WHERE transaction_id=?"); // prepare the sql statement

@@ -6,6 +6,11 @@ use Core\Base\Model;
 
 class Transaction extends Model
 {
+    /**
+     * get last row id from db
+     *
+     * @return array
+     */
     public function get_last_record_id()
     {
         $stmt = $this->connection->prepare("SELECT (id) FROM $this->table ORDER BY id DESC LIMIT 1"); // prepare the sql statement
@@ -15,7 +20,12 @@ class Transaction extends Model
         // $result = $this->connection->query("SELECT * FROM $this->table WHERE id=$id");
         return $result->fetch_assoc();
     }
-
+    /**
+     * Fetches current logged in user today transactions
+     *
+     * @param [type] $id
+     * @return array
+     */
     public function get_today_user_transactions($id)
     {
         $data = array();
@@ -31,7 +41,12 @@ class Transaction extends Model
         $stmt->close();
         return $data;
     }
-
+    /**
+     * get selected transaction  info from db
+     *
+     * @param [type] $id
+     * @return object
+     */
     public function get_transaction_by_id($id)
     {
         $stmt = $this->connection->prepare("SELECT transactions.id,transactions.item_id,transactions.quantity,transactions.total,items.name,items.price FROM transactions INNER JOIN items ON items.id = transactions.item_id WHERE transactions.id=?"); // prepare the sql statement
@@ -39,9 +54,14 @@ class Transaction extends Model
         $stmt->execute(); // execute the statement on the DB
         $result = $stmt->get_result(); // get the result of the execution
         $stmt->close();
-        // $result = $this->connection->query("SELECT * FROM $this->table WHERE id=$id");
         return $result->fetch_object();
     }
+    /**
+     * Update transaction details in db
+     *
+     * @param [type] $data
+     * @return void
+     */
     public function update_transaction($data)
     {
         $item_id = $data['item_id'];

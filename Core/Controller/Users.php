@@ -37,7 +37,11 @@ class Users extends Controller
         $this->data['users'] = $user->get_all();
         $this->data['users_count'] = count($user->get_all());
     }
-
+    /**
+     * Get selected user info
+     *
+     * @return void
+     */
     public function single()
     {
         $this->permissions(['user:read']);

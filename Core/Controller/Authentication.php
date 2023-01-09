@@ -36,7 +36,7 @@ class Authentication extends Controller
         /**
          * Displays login form
          *
-         * 
+         *  @return void
          */
         public function login()
         {
@@ -46,7 +46,7 @@ class Authentication extends Controller
         /**
          * Login Validation
          *
-         * 
+         *  @return void
          */
         public function validate()
         {
@@ -103,7 +103,7 @@ class Authentication extends Controller
         /**
          * Logout signed in user destroy the session and cookie if is set
          *
-         * 
+         *  @return void
          */
         public function logout()
         {
@@ -116,7 +116,7 @@ class Authentication extends Controller
         /**
          * If entered wrong data user or pass
          *
-         * 
+         *  @return void
          */
         private function invalid_redirect()
         {

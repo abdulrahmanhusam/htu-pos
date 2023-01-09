@@ -26,7 +26,7 @@ class Admin extends Controller
         /**
          * Displays the admin dashboard
          *
-         * 
+         *  @return void
          */
         public function index()
         {

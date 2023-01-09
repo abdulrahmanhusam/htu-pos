@@ -41,10 +41,10 @@ class Model
     /**
      * Get record BY id from Database
      *
-     * 
-     * 
+     * @param [type] $id
+     * @return object
      */
-    public function get_by_id($id)
+    public function get_by_id($id): object
     {
         $stmt = $this->connection->prepare("SELECT * FROM $this->table WHERE id=?"); // prepare the sql statement
         $stmt->bind_param('i', $id); // bind the params per data type (https://www.php.net/manual/en/mysqli-stmt.bind-param.php)
@@ -53,12 +53,11 @@ class Model
         $stmt->close();
         return $result->fetch_object();
     }
-
     /**
      * Delete selected record from Database
      *
-     * 
-     * 
+     * @param [type] $id
+     * @return void
      */
     public function delete($id)
     {
@@ -68,12 +67,11 @@ class Model
         $stmt->close();
         // $result = $this->connection->query("DELETE FROM $this->table WHERE id=$id");
     }
-
     /**
      * Insert data to table in DateBase
      *
      * @param [type] $data
-     * 
+     * @return void
      */
     public function create($data)
     {
@@ -123,12 +121,11 @@ class Model
         $stmt->execute();
         $stmt->close();
     }
-
     /**
      * Update table record data in the DB
      *
      * @param [type] $data
-     * 
+     * @return void
      */
     public function update($data)
     {
@@ -175,10 +172,10 @@ class Model
         $stmt->execute();
         $stmt->close();
     }
-
     /**
-     * Establish the connection to DB
-     * 
+     *  Establish the connection to DB
+     *
+     * @return void
      */
     protected function connection()
     {
@@ -195,10 +192,10 @@ class Model
             die("Connection failed: " . $this->connection->connect_error);
         }
     }
-
     /**
      * To get the table name in the DB depending on the class name (Dynamic include tables)
-     * 
+     *
+     * @return void
      */
     protected function relate_table()
     {
