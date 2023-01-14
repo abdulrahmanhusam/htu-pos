@@ -110,7 +110,7 @@ class Authentication extends Controller
                 \session_destroy();
                 \session_unset();
                 \setcookie('user_id', '', time() - 3600); // destroy the cookie by setting a past expiry date
-                Helper::redirect('/');
+                Helper::redirect('/login');
         }
 
         /**
@@ -121,7 +121,7 @@ class Authentication extends Controller
         private function invalid_redirect()
         {
                 $_SESSION['error'] = "Invalid Username or Password";
-                Helper::redirect('/');
+                Helper::redirect('/login');
                 exit;
         }
 }

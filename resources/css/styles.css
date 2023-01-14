@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 body {
   height: 100vh;
   background-color: #dddddd;
@@ -19,6 +20,10 @@ body {
 .brand-font{
   font-family: 'Permanent Marker', cursive;
 }
+.brand-font-home
+{
+  font-family: 'Lobster', cursive;
+}
 .name-font{
   font-family: 'Dancing Script', cursive;
 
@@ -30,7 +35,7 @@ body {
   max-height: 250px;
 }
 
-section {
+#main section {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -128,6 +133,23 @@ section .contentBx .formbx .inputbx span {
   border-radius: 10px 15px 10px 15px;
   padding: 10px;
 }
+/* Landing Page design */
+#home-sec{
+  display: block;
+  }
+  .carousel-inner .carousel-item .fs-icon{
+    font-size: 7rem;
+    padding-top: 60px;
+    padding-right: 140px;
+  }
+  .fade-in-text {
+    animation: fadeIn 5s;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
 /* Responsive */
 @media screen and (max-width: 576px) {
   section .imgBx {
@@ -155,6 +177,11 @@ section .contentBx .formbx .inputbx span {
   }
   .md-ic{
     font-size: 1.5rem;
+  }
+  .carousel-inner .carousel-item .fs-icon{
+    font-size: 5rem;
+    padding-top: 20px;
+    padding-right: 60px;
   }
 }
 @media screen and (min-width:577px) and (max-width: 768px) {
@@ -184,6 +211,11 @@ section .contentBx .formbx .inputbx span {
   .md-ic{
     font-size: 1.5rem;
   }
+  .carousel-inner .carousel-item .fs-icon{
+    font-size: 5rem;
+    padding-top: 40px;
+    padding-right: 60px;
+  }
 }
 @media screen and (min-width:769px) and (max-width: 992px) {
   section .imgBx {
@@ -210,5 +242,10 @@ section .contentBx .formbx .inputbx span {
   }
   .md-ic{
     font-size: 1.7rem;
+  }
+  .carousel-inner .carousel-item .fs-icon{
+    font-size: 5rem;
+    padding-top: 100px;
+    padding-right: 100px;
   }
 }

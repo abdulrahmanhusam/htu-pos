@@ -26,8 +26,9 @@ if (isset($_COOKIE['user_id']) && !isset($_SESSION['user'])) { // check if there
 
 // This code will run only at the first time of using the app.
 
+Router::get('/', "front.index"); // Display landing page
 // For home page (login page)
-Router::get('/', "authentication.login"); // Display home.php
+Router::get('/login', "authentication.login"); // Display home.php
 Router::post('/authenticate', "authentication.validate"); // Displays the login form
 Router::get('/logout', "authentication.logout"); // Logs the user out
 
