@@ -149,6 +149,9 @@ section .contentBx .formbx .inputbx span {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
+  .img-home-h{
+  max-height: 100vh;
+  }
   
 /* Responsive */
 @media screen and (max-width: 576px) {
@@ -179,10 +182,11 @@ section .contentBx .formbx .inputbx span {
     font-size: 1.5rem;
   }
   .carousel-inner .carousel-item .fs-icon{
-    font-size: 5rem;
-    padding-top: 20px;
-    padding-right: 60px;
+   display: none;
   }
+  .img-home-h{
+    max-height: 60vh;
+    }
 }
 @media screen and (min-width:577px) and (max-width: 768px) {
   section .imgBx {
@@ -216,6 +220,9 @@ section .contentBx .formbx .inputbx span {
     padding-top: 40px;
     padding-right: 60px;
   }
+  .img-home-h{
+    max-height: 80vh;
+    }
 }
 @media screen and (min-width:769px) and (max-width: 992px) {
   section .imgBx {

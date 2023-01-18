@@ -43,15 +43,15 @@
                             trending_up
                         </span> -->
                         <i class="fa fa-line-chart position-absolute top-50 end-0 text-light fs-icon fw-bolder fade-in-text"></i>
-                        <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/pic1-slider.jpg" class="d-block vh-100 w-100" alt="...">
+                        <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/pic1-slider.jpg" class="d-block img-home-h w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <span class="position-absolute top-0 end-0 fade-in-text text-light display-4 name-font pe-sm-0 pe-md-2 pt-5 pe-lg-5"><span class="d-block pt-5">Fast</span><span class="d-block">Easy</span><span class="d-block">Responsive</span><span class="d-block">System</span></span>
-                        <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/pic2-slider.jpg" class="d-block vh-100 w-100" alt="...">
+                        <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/pic2-slider.jpg" class="d-block img-home-h w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <span class="position-absolute top-0 end-0 fade-in-text text-light display-4 name-font pe-sm-0 pe-md-2 pt-5 pe-lg-5"><span class="d-block">Track</span><span class="d-block">Your</span><span class="d-block">Business</span><span class="d-block">from</span><span class="d-block">Anywhere</span></span>
-                        <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/pic3-slider.jpg" class="d-block vh-100 w-100" alt="...">
+                        <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/pic3-slider.jpg" class="d-block img-home-h w-100" alt="...">
                     </div>
 
                 </div>
@@ -77,13 +77,13 @@
             </div>
 
             <div class="container-fluid mt-0 mt-md-2 mt-lg-5 p-0 p-md-0 p-lg-2 bg-light">
-                <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/fig-3.png" class="d-block w-100 shadow img-fluid" alt="...">
+                <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/fig-3.jpg" class="d-block w-100 shadow img-fluid" alt="...">
             </div>
             <div class="container-fluid mt-0 mt-md-2 mt-lg-5 p-0 p-md-0 p-lg-2">
-                <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/fig-41.png" class="d-block w-100 shadow img-fluid" alt="...">
+                <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/fig-41.jpg" class="d-block w-100 shadow img-fluid" alt="...">
             </div>
             <div class="container-fluid mt-0 mt-md-2 mt-lg-5 p-0 p-md-0 p-lg-2">
-                <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/fig-5.png" class="d-block w-100 shadow img-fluid" alt="...">
+                <img src="<?= $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] ?>/resources/images/fig-5.jpg" class="d-block w-100 shadow img-fluid" alt="...">
             </div>
             <div class="container-fluid mt-0 mt-md-2 mt-lg-5 p-0">
 
