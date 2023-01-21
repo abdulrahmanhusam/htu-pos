@@ -1,3 +1,6 @@
+<?php
+
+use Core\Helpers\Helper; ?>
 <div class="container-fluid">
     <div class="row d-flex flex-row justify-content-center my-2">
         <div class="d-flex flex-row gap-3">
@@ -12,7 +15,8 @@
             <?php if (!is_null($data->transaction->item_id)) : ?>
                 <a href="/transactions/edit?id=<?= $data->transaction->id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> <span class="d-none d-lg-inline-block">Edit</span></a>
             <?php endif; ?>
-            <a href="/transactions/delete?id=<?= $data->transaction->id ?>" class="btn btn-danger"><i class="fa fa-times"></i> <span class="d-none d-lg-inline-block">Delete</span></a>
+            <?php if (Helper::check_permission(['transaction:delete'])) : ?>
+                <a href="/transactions/delete?id=<?= $data->transaction->id ?>" class="btn btn-danger"><i class="fa fa-times"></i> <span class="d-none d-lg-inline-block">Delete</span></a><?php endif; ?>
         </div>
     </div>
 
