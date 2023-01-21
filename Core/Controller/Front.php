@@ -27,7 +27,7 @@ class Front extends Controller
                                 Helper::redirect('/transactions');
                         }
                 }
-        } 
+        }
 
         /**
          * Displays the landing page
@@ -35,8 +35,7 @@ class Front extends Controller
          */
         public function index()
         {
-               
-                $this->view = 'home';
 
+                $this->view = 'home';
         }
 }
