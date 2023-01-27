@@ -187,6 +187,11 @@ section .contentBx .formbx .inputbx span {
   .img-home-h{
     max-height: 60vh;
     }
+  .fa-position{
+    position: relative;
+    top: 0px;
+    left: -4px;
+    }
 }
 @media screen and (min-width:577px) and (max-width: 768px) {
   section .imgBx {
@@ -223,6 +228,11 @@ section .contentBx .formbx .inputbx span {
   .img-home-h{
     max-height: 80vh;
     }
+    .fa-position{
+      position: relative;
+      top: 0px;
+      left: -4px;
+      }
 }
 @media screen and (min-width:769px) and (max-width: 992px) {
   section .imgBx {
@@ -255,4 +265,9 @@ section .contentBx .formbx .inputbx span {
     padding-top: 100px;
     padding-right: 100px;
   }
+  .fa-position{
+    position: relative;
+    top: 0px;
+    left: -4px;
+    }
 }

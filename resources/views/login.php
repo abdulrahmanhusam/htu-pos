@@ -13,11 +13,11 @@
 
                     <div class="inputbx">
                         <span>Username</span>
-                        <input type="text" name="username" required />
+                        <input type="text" name="username" placeholder="username" required />
                     </div>
                     <div class="inputbx">
                         <span>Password</span>
-                        <input type="password" name="password" required />
+                        <input type="password" name="password" placeholder="password" required />
                     </div>
                     <div class="remember">
                         <input type="checkbox" id="remember-me" name="remember_me">

@@ -1,29 +1,29 @@
 <body onload="loadjspage();" class="container my-5">
     <h1 class="text-center text-success bg-gradient name-font">Selling Dashboard</h1>
     <hr class="w-50 m-auto  mb-5">
-    <div class="card mb-5 p-5 shadow rounded">
-        <form id="userInputContainer" class="m-auto d-sm-block d-lg-flex justify-content-between ">
+    <div class="card mb-5 pt-3 p-0 p-lg-4 shadow rounded">
+        <form id="userInputContainer" class="m-auto d-sm-block d-lg-flex justify-content-between w-100">
 
             <input type="hidden" value="<?= $_SESSION['user']['user_id'] ?>">
-            <div class="input-group flex-nowrap pe-3 mb-2 mb-md-3 mb-lg-0">
+            <div class="input-group flex-nowrap pe-3 ps-2 mb-2 mb-md-3 mb-lg-0">
                 <span class="input-group-text" id="addon-wrapping">Items</span>
                 <select name="items-select" id="items-select" class="form-select" aria-label="Default select example">
                     <option value="">Choose an Item</option>
                 </select>
             </div>
 
-            <div class="input-group flex-nowrap pe-3 mb-2 mb-md-3 mb-lg-0">
+            <div class="input-group flex-nowrap pe-3 ps-2 mb-2 mb-md-3 mb-lg-0">
                 <span class="input-group-text" id="addon-wrapping">Quantity</span>
                 <input id="quantity" type="number" class="form-control" aria-describedby="addon-wrapping" min="1" required>
             </div>
 
 
-            <div class="input-group flex-nowrap pe-3 mb-2 mb-md-3 mb-lg-0">
+            <div class="input-group flex-nowrap pe-3 ps-2 mb-2 mb-md-3 mb-lg-0">
                 <span class="input-group-text" id="addon-wrapping">Price (JOD)</span>
                 <input id="price" type="number" step="any" class="form-control" aria-describedby="addon-wrapping" readonly>
             </div>
 
-            <button id="buy-item" class="btn btn-success">Buy</button>
+            <button id="buy-item" class="btn btn-success ms-2 ms-lg-0">Sell</button>
             <button id="update-item" class="btn btn-warning me-2">Update</button>
             <button id="cancel" class="btn btn-primary">Cancel</button>
 

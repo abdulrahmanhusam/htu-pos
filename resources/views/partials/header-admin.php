@@ -72,14 +72,14 @@ use Core\Helpers\Helper;
                     <?php if (Helper::check_permission(['user:read'])) : ?>
                         <li class="list-group-item list-group-item-action bg-dark <?= strpos($_SERVER['REQUEST_URI'], 'user') ? "opacity-100" : "opacity-50" ?>">
 
-                            <a class="text-white text-decoration-none " href="/users"><i class="fas fa-users pe-2 md-ic" aria-hidden="true"></i> <span class="d-none d-lg-inline-block">Users</span></a>
+                            <a class="text-white text-decoration-none fa-position" href="/users"><i class="fas fa-users pe-2 md-ic" aria-hidden="true"></i> <span class="d-none d-lg-inline-block">Users</span></a>
                         </li><?php endif; ?>
 
 
                     <?php if (Helper::check_permission(['item:read'])) : ?>
                         <li class="list-group-item list-group-item-action bg-dark text-white <?= strpos($_SERVER['REQUEST_URI'], 'item') ? "opacity-100" : "opacity-50" ?>">
 
-                            <a class="text-white text-decoration-none " href="/items"><i class="fa fa-shopping-cart pe-2 md-ic" aria-hidden="true"></i> <span class="d-none d-lg-inline-block">Products</span></a>
+                            <a class="text-white text-decoration-none fa-position" href="/items"><i class="fa fa-shopping-cart pe-2 md-ic" aria-hidden="true"></i> <span class="d-none d-lg-inline-block">Products</span></a>
                         </li><?php endif; ?>
                     <?php if (Helper::check_permission(['sales:all'])) : ?>
                         <li class="list-group-item list-group-item-action bg-dark text-white <?= strpos($_SERVER['REQUEST_URI'], 'sales') ? "opacity-100" : "opacity-50" ?>">
