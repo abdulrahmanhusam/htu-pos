@@ -196,7 +196,7 @@
                         //success MSG
                         $('#msg').append(`
                         <p class="alert alert-success w-50 m-auto"  role="alert">
-                        Item bought successfully
+                        Item sold successfully
                         </p>
                         `);
                         setTimeout(() => {
