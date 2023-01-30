@@ -110,7 +110,7 @@ class Endpoints extends Controller
             $this->response_schema['body'] = $transaction_info;
 
             $this->response_schema['message_code'] = "transaction_created_successfuly";
-        } catch (\Exception $error) {
+        } catch (Exception $error) {
             $this->response_schema['message_code'] = $error->getMessage();
             $this->http_code = 422;
         }
@@ -187,19 +187,43 @@ class Endpoints extends Controller
             $item_id = (int) $this->request_body['item_id']; //select item id to get data
             $selected_quantity = $this->request_body['quantity']; //select the required quantity
             $previous_quantity = $this->request_body['previous_quantity']; //get the previous quantity
+            // in case item changed to synchronize the quantity (return the sold item quantity)
+            $prev_item_id = (int) $this->request_body['prev_item_id']; //select previous item id to get data
+            if ($prev_item_id!=0) {//update the quatity for the previous item which means items is changed 
+                $item= new Item();
+                $prev_item_data = $item->get_by_id($prev_item_id);
+            if (empty($prev_item_data)) {
+                throw new Exception("No item were found ");
+            }
+            $prev_item_available_quantity = $prev_item_data->available_quantity;
+            $update_prev_quantity_value = $prev_item_available_quantity + $previous_quantity;
+
+            $prev_data_to_update = array("available_quantity" => $update_prev_quantity_value, "id" => $prev_item_id);
+            $item->update_available_quantity($prev_data_to_update);
+            // process updating item quantity for the new item
+            $new_item_data = $item->get_by_id($item_id);
+            $item_available_quantity = $new_item_data->available_quantity;
+            $update_quantity_value = $item_available_quantity - $selected_quantity;
+
+            $data_to_update = array("available_quantity" => $update_quantity_value, "id" => $item_id);
+            $item->update_available_quantity($data_to_update);
+            }
+            else{//which means the same item but changed the quantity
             $item = new Item();
             $item_data = $item->get_by_id($item_id);
             if (empty($item_data)) {
                 throw new Exception("No item were found ");
             }
             $item_available_quantity = $item_data->available_quantity;
-            $update_quantity_value = $item_available_quantity - ($selected_quantity - $previous_quantity);
+            $update_quantity_value = ($item_available_quantity + $previous_quantity) - $selected_quantity ;
 
             $data_to_update = array("available_quantity" => $update_quantity_value, "id" => $item_id);
             $item->update_available_quantity($data_to_update);
+        }
 
             //updating this transaction
             unset($this->request_body['previous_quantity']);
+            unset($this->request_body['prev_item_id']);
             $transaction_id = (int) $this->request_body['id'];
             $transaction = new Transaction();
             $transaction->update_transaction($this->request_body);

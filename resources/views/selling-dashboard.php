@@ -263,6 +263,7 @@
 
         let selectedItemNameToupdate = null;
         let selectedItemQuantityToupdate = null;
+        let selectedItemIdToupdate=null;
         let checkPrevious_item_name = null;
 
         function editTransacion(id) {
@@ -280,6 +281,7 @@
                     $('#cancel').show();
                     //get the item name and quantity to check if user make change or not
                     selectedItemNameToupdate = response.body.name;
+                    selectedItemIdToupdate= response.body.item_id;
                     selectedItemQuantityToupdate = response.body.quantity;
                     //check if the item name updated from stock
                     checkPrevious_item_name = response.body.previous_item_name;
@@ -375,6 +377,12 @@
                     alert("Exceeded the available quantity");
                     return;
                 }
+                //if item doesn't change this step to update it's quantity
+                if (selectedItemNameToupdate == itemsSelector ){
+                    //in case item doesn't change to return back the quantity of the previous item
+                    selectedItemIdToupdate=0;
+                    
+                }
 
 
                 $.ajax({
@@ -382,6 +390,7 @@
                     url: host + "/api/sales/update",
                     data: JSON.stringify({ // we can put these data in assoc array rather than this steps and DTcasting in api controller 
                         item_id: itemID, //public in on change quantity method
+                        prev_item_id:selectedItemIdToupdate,//in case the item changed will return the quantity to this item
                         item_name: itemsSelector,
                         quantity: quantity,
                         previous_quantity: selectedItemQuantityToupdate,
@@ -424,6 +433,9 @@
                         rIndex = null;
                         cIndex = null;
                         id = null;
+                    $('#update-item').hide("slow", "linear");
+                    $('#cancel').hide("slow", "linear");
+                    $('#buy-item').show("slow", "linear");
                     },
                     error: function(e) {
                         console.log(e)
