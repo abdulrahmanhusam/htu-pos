@@ -26,10 +26,15 @@ use Core\Helpers\Helper;
             <div class="alert bg-light text-danger fw-bolder rounded-5 text-center shadow">Total Users: <?= $data->users_count ?></div>
         </div>
         <div class="col-12 col-md-6 col-lg-3 ">
+            <?php if(trim($_SESSION['user']['username']) == 'demo_admin'): ?>
+                <div class="alert bg-success rounded-3 text-center shadow-lg text-light"><i class="fa fa-user-plus" aria-hidden="true"></i>
+                    User addition unavailable in demo</div>
+            <?php else: ?>
             <a href="/users/create" class="text-white text-decoration-none">
                 <div class="alert bg-success fw-bold rounded-3 text-center shadow-lg"><i class="fa fa-user-plus" aria-hidden="true"></i>
                     Add User</div>
             </a>
+            <?php endif;?>
         </div>
 
     </div>

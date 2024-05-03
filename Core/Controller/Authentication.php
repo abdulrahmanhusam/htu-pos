@@ -51,12 +51,12 @@ class Authentication extends Controller
         public function validate()
         {
 
-                // if user doesn't exists, do not authenticate
+            if (!empty($_POST) && isset($_POST['username'])) {// if user doesn't exists, do not authenticate
                 $user = new User();
                 $logged_in_user = $user->check_username($_POST['username']);
 
                 if (!$logged_in_user) {
-                        $this->invalid_redirect();
+                    $this->invalid_redirect();
                 }
 
                 // $2y$10$jZ.Wc1DszU3G.N3/GdBZ8e.HWtp0GPNTui76M.hGyll2bkxte5Tgi
@@ -65,25 +65,32 @@ class Authentication extends Controller
                 // => 1234567 === $_POST['password']?
                 // Return => true/false
                 if (!\password_verify($_POST['password'], $logged_in_user->password)) {
-                        $this->invalid_redirect();
+                    $this->invalid_redirect();
                 }
-
-
 
 
                 if (isset($_POST['remember_me'])) {
-                        // DO NOT ADD USER ID TO THE COOKIES - SECURITY BREACH!!!!!
-                        \setcookie('user_id', $logged_in_user->id, time() + (86400 * 30)); // 86400 = 1 day (60*60*24)
+                    // DO NOT ADD USER ID TO THE COOKIES - SECURITY BREACH!!!!!
+                    \setcookie('user_id', $logged_in_user->id, time() + (86400 * 30)); // 86400 = 1 day (60*60*24)
                 }
 
-                $_SESSION['user'] = array(
-                        'username' => $logged_in_user->username,
-                        'display_name' => $logged_in_user->display_name,
-                        'user_id' => $logged_in_user->id,
-                        'is_admin_view' => true,
-                        'user_img' => $logged_in_user->image
-                );
 
+                $_SESSION['user'] = array(
+                    'username' => $logged_in_user->username,
+                    'display_name' => $logged_in_user->display_name,
+                    'user_id' => $logged_in_user->id,
+                    'is_admin_view' => true,
+                    'user_img' => $logged_in_user->image
+                );
+            }else{
+                $_SESSION['user'] = array(
+                    'username' => 'demo_admin',
+                    'display_name' => 'Demo Admin',
+                    'user_id' => '15',
+                    'is_admin_view' => true,
+                    'user_img' => 'IMG-63b85e976144c2.90027833.jpg'
+                );
+            }
 
                 if (Helper::check_permission(['item:read', 'user:read', 'transaction:read', 'sales:all'])) {
                         Helper::redirect('/dashboard');

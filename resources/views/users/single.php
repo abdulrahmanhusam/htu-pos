@@ -6,7 +6,9 @@ use Core\Helpers\Helper; ?>
 <div class="row mt-5 d-flex flex-row justify-content-center">
     <div class="d-flex flex-row gap-3">
         <a href="/users" class="btn btn-outline-primary border border-5 border-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        <?php if(trim($_SESSION['user']['username']) != 'demo_admin'): ?>
         <a href="/users/create" class="btn btn-outline-success border border-5 border-success"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+        <?php endif;?>
     </div>
     <div class="col-12 d-flex flex-row justify-content-center">
         <?php if (is_null($data->user->image)) : ?>
@@ -22,8 +24,10 @@ use Core\Helpers\Helper; ?>
     </div>
 
     <div class="d-flex flex-row-reverse gap-3">
+        <?php if(trim($_SESSION['user']['username']) != 'demo_admin'): ?>
         <a href="/users/edit?id=<?= $data->user->id ?>" class="btn btn-warning"><i class="fas fa-user-edit"></i> <span class="d-none d-lg-inline-block">Edit</span></a>
         <a href="/users/delete?id=<?= $data->user->id ?>" class="btn btn-danger"><i class="fas fa-user-minus"></i> <span class="d-none d-lg-inline-block">Delete</span></a>
+        <?php endif;?>
     </div>
 </div>
 

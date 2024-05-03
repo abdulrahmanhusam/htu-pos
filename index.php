@@ -30,6 +30,7 @@ Router::get('/', "front.index"); // Display landing page
 // For home page (login page)
 Router::get('/login', "authentication.login"); // Display home.php
 Router::post('/authenticate', "authentication.validate"); // Displays the login form
+Router::get('/authenticate', "authentication.validate"); // Displays the login form
 Router::get('/logout', "authentication.logout"); // Logs the user out
 
 
@@ -55,18 +56,22 @@ Router::get('/sales', "items.sales");
 Router::get('/users', "users.index"); // list of users (HTML)
 Router::get('/user', "users.single"); // Displays single user (HTML)
 // athenticated + permissions [user:create]
-Router::get('/users/create', "users.create"); // Display the creation form (HTML)
-Router::post('/users/store', "users.store"); // Creates the users (PHP)
+if (trim($_SESSION['user']['username']) != 'demo_admin') {
+    Router::get('/users/create', "users.create"); // Display the creation form (HTML)
+    Router::post('/users/store', "users.store"); // Creates the users (PHP)
 // athenticated + permissions [user:read, user:create]
-Router::get('/users/edit', "users.edit"); // Display the edit form (HTML)
-Router::post('/users/update', "users.update"); // Updates the users (PHP)
+    Router::get('/users/edit', "users.edit"); // Display the edit form (HTML)
+    Router::post('/users/update', "users.update"); // Updates the users (PHP)
 // athenticated + permissions [user:read, user:delete]
-Router::get('/users/delete', "users.delete"); // Delete the user (PHP)
+    Router::get('/users/delete', "users.delete"); // Delete the user (PHP)
+}
 
 // authenticated Users to  show and update Profile Page
-Router::get('/profile', "users.profile"); //display current user Info 
-Router::get('/profile/edit', "users.edit_profile"); //Edit Profile  Info (HTML)
-Router::post('/profile/update', "users.update_profile"); //Update Profile  Info (PHP)
+Router::get('/profile', "users.profile"); //display current user Info
+if (trim($_SESSION['user']['username']) != 'demo_admin') {
+    Router::get('/profile/edit', "users.edit_profile"); //Edit Profile  Info (HTML)
+    Router::post('/profile/update', "users.update_profile"); //Update Profile  Info (PHP)
+}
 
 
 // athenticated + permissions [post:read]

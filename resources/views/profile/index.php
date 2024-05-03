@@ -17,7 +17,9 @@ use Core\Helpers\Helper; ?>
     </div>
 
     <div class="d-flex flex-row-reverse gap-3">
+        <?php if(trim($_SESSION['user']['username']) != 'demo_admin'): ?>
         <a href="/profile/edit" class="btn btn-warning"><i class="fas fa-user-edit"></i> <span class="d-none d-lg-inline-block">Edit</span></a>
+        <?php endif;?>
     </div>
 </div>
 

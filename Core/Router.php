@@ -42,6 +42,11 @@ class Router
         }
 
         if (empty($routes) || !array_key_exists($request, $routes)) {
+            if (trim($_SESSION['user']['username']) == 'demo_admin') {
+                http_response_code(401);
+                new View('unauthorized'); // This page is in the views directory
+                exit;
+            }
             http_response_code(404);
             new View('404'); // This page is in the views directory
             exit;

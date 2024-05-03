@@ -26,7 +26,7 @@
                                 <a class="nav-link" target="_blank" href="https://www.htu.edu.jo/#/">About Us</a>
                             </li>
                         </ul>
-                        <a href="#" class=" btn btn-success ps-5 pe-5 me-4">Get a Demo</a>
+                        <a href="/authenticate" class=" btn btn-success ps-5 pe-5 me-4">Launch Demo</a>
                         <a href="/login" class="float-end btn btn-outline-success ps-5 pe-5 me-4">Login</a>
 
 
